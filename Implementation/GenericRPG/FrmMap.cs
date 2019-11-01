@@ -27,6 +27,9 @@ namespace GenericRPG {
     }
 
     private void FrmMap_KeyDown(object sender, KeyEventArgs e) {
+      // don't allow movement if the player is in a fight
+      if (game.State == GameState.FIGHTING) return;
+
       MoveDir dir = MoveDir.NO_MOVE;
       switch (e.KeyCode) {
         case Keys.Left:

@@ -14,6 +14,9 @@ namespace GenericRPG {
 
     public FrmArena() {
       InitializeComponent();
+
+      // hides the [X] button so player can't skip a fight
+      ControlBox = false;
     }
     private void btnEndFight_Click(object sender, EventArgs e) {
       EndFight();
@@ -40,6 +43,7 @@ namespace GenericRPG {
       lblPlayerName.Text = character.Name;
       lblEnemyName.Text = enemy.Name;
     }
+
     public void UpdateStats() {
       lblPlayerLevel.Text = character.Level.ToString();
       lblPlayerHealth.Text = Math.Round(character.Health).ToString();
@@ -57,6 +61,7 @@ namespace GenericRPG {
       lblPlayerHealth.Text = Math.Round(character.Health).ToString();
       lblEnemyHealth.Text = Math.Round(enemy.Health).ToString();
     }
+
     private void btnSimpleAttack_Click(object sender, EventArgs e) {
       float prevEnemyHealth = enemy.Health;
       character.SimpleAttack(enemy);
@@ -77,28 +82,10 @@ namespace GenericRPG {
         }
       }
       else {
-        float prevPlayerHealth = character.Health;
-        enemy.SimpleAttack(character);
-        float playerDamage = (float)Math.Round(prevPlayerHealth - character.Health);
-        lblPlayerDamage.Text = playerDamage.ToString();
-        lblPlayerDamage.Visible = true;
-        tmrPlayerDamage.Enabled = true;
-        if (character.Health <= 0) {
-          UpdateStats();
-          game.ChangeState(GameState.DEAD);
-          lblEndFightMessage.Text = "You Were Defeated!";
-          lblEndFightMessage.Visible = true;
-          Refresh();
-          Thread.Sleep(1200);
-          EndFight();
-          FrmGameOver frmGameOver = new FrmGameOver();
-          frmGameOver.Show();
-        }
-        else {
-          UpdateStats();
-        }
+        doEnemyAttack();
       }
     }
+
     private void btnRun_Click(object sender, EventArgs e) {
       if (rand.NextDouble() < 0.25) {
         lblEndFightMessage.Text = "You Ran Like a Coward!";
@@ -108,8 +95,7 @@ namespace GenericRPG {
         EndFight();
       }
       else {
-        enemy.SimpleAttack(character);
-        UpdateStats();
+        doEnemyAttack();
       }
     }
 
@@ -128,6 +114,32 @@ namespace GenericRPG {
         lblEnemyDamage.Visible = false;
         tmrEnemyDamage.Enabled = false;
         lblEnemyDamage.Top = 52;
+      }
+    }
+
+    private void doEnemyAttack()
+    {
+      float prevPlayerHealth = character.Health;
+      enemy.SimpleAttack(character);
+      float playerDamage = (float)Math.Round(prevPlayerHealth - character.Health);
+      lblPlayerDamage.Text = playerDamage.ToString();
+      lblPlayerDamage.Visible = true;
+      tmrPlayerDamage.Enabled = true;
+      if (character.Health <= 0)
+      {
+        UpdateStats();
+        game.ChangeState(GameState.DEAD);
+        lblEndFightMessage.Text = "You Were Defeated!";
+        lblEndFightMessage.Visible = true;
+        Refresh();
+        Thread.Sleep(1200);
+        EndFight();
+        FrmGameOver frmGameOver = new FrmGameOver();
+        frmGameOver.Show();
+      }
+      else
+      {
+        UpdateStats();
       }
     }
   }
