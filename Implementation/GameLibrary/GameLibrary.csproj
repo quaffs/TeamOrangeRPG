@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attribute.cs" />
     <Compile Include="BasicSword.cs" />
     <Compile Include="Character.cs" />
     <Compile Include="Enemy.cs" />
@@ -52,6 +53,7 @@
     <Compile Include="Mortal.cs" />
     <Compile Include="MoveDir.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SuperSword.cs" />
     <Compile Include="Weapon.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

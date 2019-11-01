@@ -41,6 +41,9 @@ namespace GenericRPG {
       if (character.EquippedWeapon != null)
       {
         picPlayerWeapon.BackgroundImage = Resources.ResourceManager.GetObject(character.EquippedWeapon.Sprite) as Bitmap;
+        picCharacter.Controls.Add(picPlayerWeapon);
+        picPlayerWeapon.Location = new Point(180, 30);
+        picPlayerWeapon.BackColor = Color.Transparent;
       }
 
       // names
@@ -51,15 +54,15 @@ namespace GenericRPG {
     public void UpdateStats() {
       lblPlayerLevel.Text = character.Level.ToString();
       lblPlayerHealth.Text = Math.Round(character.Health).ToString();
-      lblPlayerStr.Text = Math.Round(character.Str).ToString();
-      lblPlayerDef.Text = Math.Round(character.Def).ToString();
+      lblPlayerStr.Text = Math.Round(character.Stats["Str"].CalcValue).ToString();
+      lblPlayerDef.Text = Math.Round(character.Stats["Def"].CalcValue).ToString();
       lblPlayerMana.Text = Math.Round(character.Mana).ToString();
       lblPlayerXp.Text = Math.Round(character.XP).ToString();
 
       lblEnemyLevel.Text = enemy.Level.ToString();
       lblEnemyHealth.Text = Math.Round(enemy.Health).ToString();
-      lblEnemyStr.Text = Math.Round(enemy.Str).ToString();
-      lblEnemyDef.Text = Math.Round(enemy.Def).ToString();
+      lblEnemyStr.Text = Math.Round(enemy.Stats["Str"].CalcValue).ToString();
+      lblEnemyDef.Text = Math.Round(enemy.Stats["Def"].CalcValue).ToString();
       lblEnemyMana.Text = Math.Round(enemy.Mana).ToString();
 
       lblPlayerHealth.Text = Math.Round(character.Health).ToString();

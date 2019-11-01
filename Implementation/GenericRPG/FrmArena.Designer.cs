@@ -230,7 +230,6 @@
       // picPlayerWeapon
       // 
       this.picPlayerWeapon.BackColor = System.Drawing.Color.Transparent;
-      this.picPlayerWeapon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
       this.picPlayerWeapon.Location = new System.Drawing.Point(203, 86);
       this.picPlayerWeapon.Name = "picPlayerWeapon";
       this.picPlayerWeapon.Size = new System.Drawing.Size(100, 62);
