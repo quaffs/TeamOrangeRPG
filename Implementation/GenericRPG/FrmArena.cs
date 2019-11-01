@@ -139,15 +139,29 @@ namespace GenericRPG {
       tmrPlayerDamage.Enabled = true;
       if (character.Health <= 0)
       {
-        UpdateStats();
-        game.ChangeState(GameState.DEAD);
-        lblEndFightMessage.Text = "You Were Defeated!";
-        lblEndFightMessage.Visible = true;
-        Refresh();
-        Thread.Sleep(1200);
-        EndFight();
-        FrmGameOver frmGameOver = new FrmGameOver();
-        frmGameOver.Show();
+          // check if player ran out of hearts:
+          if (character.ShouldRespawn() == false)
+          {
+              UpdateStats();
+              game.ChangeState(GameState.DEAD);
+              lblEndFightMessage.Text = "You Were Defeated!";
+              lblEndFightMessage.Visible = true;
+              Refresh();
+              Thread.Sleep(1200);
+              EndFight();
+              FrmGameOver frmGameOver = new FrmGameOver();
+              frmGameOver.Show();
+          }
+          else
+          {
+              lblEndFightMessage.Text = "Hearts left: " + character.hearts + ". Respawning!";
+              lblEndFightMessage.Visible = true;
+              Refresh();
+              Thread.Sleep(1200);
+              EndFight();
+              character.RefillHealthAndMana();
+              character.BackToStart();
+          }
       }
       else
       {

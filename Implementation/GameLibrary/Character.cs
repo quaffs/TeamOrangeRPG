@@ -25,6 +25,7 @@ namespace GameLibrary {
     private Map map;
     public float XP { get; private set; }
     public bool ShouldLevelUp { get; private set; }
+    public int hearts = 2;
 
     /// <summary>
     /// 
@@ -51,6 +52,15 @@ namespace GameLibrary {
     public override void LevelUp() {
       base.LevelUp();
       ShouldLevelUp = false;
+    }
+
+    public bool ShouldRespawn() {
+        hearts--;
+        if (hearts == 0)
+            return false;
+        else
+            return true;
+
     }
 
     public void BackToStart() {
