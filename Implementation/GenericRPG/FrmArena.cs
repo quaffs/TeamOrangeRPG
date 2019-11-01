@@ -87,6 +87,18 @@ namespace GenericRPG {
     }
 
     private void btnRun_Click(object sender, EventArgs e) {
+      if (character.Health <= 0)
+      {
+        UpdateStats();
+        game.ChangeState(GameState.DEAD);
+        lblEndFightMessage.Text = "You Were Defeated!";
+        lblEndFightMessage.Visible = true;
+        Refresh();
+        Thread.Sleep(1200);
+        EndFight();
+        FrmGameOver frmGameOver = new FrmGameOver();
+        frmGameOver.Show();
+      }
       if (rand.NextDouble() < 0.25) {
         lblEndFightMessage.Text = "You Ran Like a Coward!";
         lblEndFightMessage.Visible = true;
