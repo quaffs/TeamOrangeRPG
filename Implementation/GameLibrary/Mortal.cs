@@ -31,6 +31,8 @@ namespace GameLibrary {
     public float Luck { get; protected set; }
     public float Speed { get; protected set; }
 
+    public Weapon EquippedWeapon { get; set; }
+
     private Random rand;
 
     public Mortal(string name, int level) {
@@ -77,6 +79,7 @@ namespace GameLibrary {
     }
     public void SimpleAttack(Mortal receiver) {
       float baseDamage = Math.Abs(Str * 1.2f - receiver.Def);
+      if (EquippedWeapon != null) baseDamage += EquippedWeapon.DamageModifier;
       float randMax = 1 + SIMPLEATTACK_RANDOM_AMT;
       float randMin = 1 - SIMPLEATTACK_RANDOM_AMT;
       float randMult = (float)(rand.NextDouble() * (randMax - randMin)) + randMin;

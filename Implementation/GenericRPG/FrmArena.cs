@@ -35,6 +35,10 @@ namespace GenericRPG {
       // pictures
       picCharacter.BackgroundImage = character.Pic.BackgroundImage;
       picEnemy.BackgroundImage = enemy.Img;
+      if (character.EquippedWeapon != null)
+      {
+        picPlayerWeapon.BackgroundImage = Resources.ResourceManager.GetObject(character.EquippedWeapon.Sprite) as Bitmap;
+      }
 
       // names
       lblPlayerName.Text = character.Name;
