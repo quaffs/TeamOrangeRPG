@@ -71,6 +71,7 @@ namespace GenericRPG {
       tmrEnemyDamage.Enabled = true;
       if (enemy.Health <= 0) {
         lblEnemyDamage.Visible = false;
+        lblPlayerDamage.Visible = false;
         character.GainXP(enemy.XpDropped);
         lblEndFightMessage.Text = "You Gained " + Math.Round(enemy.XpDropped) + " xp!";
         lblEndFightMessage.Visible = true;
