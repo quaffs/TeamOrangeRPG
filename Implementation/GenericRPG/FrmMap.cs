@@ -51,12 +51,10 @@ namespace GenericRPG {
         character.Move(dir);
         if (game.State == GameState.CHANGE_LEVEL)
         {
-          //////////////////////////////////////////////////////////////
-          /// NEED TO FIGURE OUT HOW TO CLOSE OLD LEVEL WINDOW
-          /// ///////////////////////////////////////////////////////
+          this.Hide();      // hides/close old window
           Game.GetGame().ChangeState(GameState.ON_MAP);
           FrmMap frmMap = new FrmMap("Resources/level2.txt");
-          frmMap.Show();
+          frmMap.Show();    // shows level 2 window
         }
         if (game.State == GameState.FIGHTING) {
           FrmArena frmArena = new FrmArena();

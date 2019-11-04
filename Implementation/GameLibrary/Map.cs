@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using System;
 using System.Drawing;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace GameLibrary {
   public class Map {
@@ -42,7 +43,6 @@ namespace GameLibrary {
           }
         }
       }
-
       // load map file into layout and create PictureBox objects
       layout = new int[mapLines.Count, mapLines[0].Length];
       int i = 0;
@@ -50,8 +50,20 @@ namespace GameLibrary {
         int j = 0;
         foreach (char c in mapLine) {
           int val = c - '0';
-          layout[i, j] = (val == 1 ? 1 : 0);
-          layout[i, j] = (val == 3 ? 3 : 0);
+          //layout[i, j] = (val == 1 ? 1 : 0);
+          //layout[i, j] = (val == 3 ? 3 : 0);
+          if (val == 1)         // wall
+          {
+             layout[i, j] = 1;
+          }
+          else if (val == 3)    // level 2
+          {
+              layout[i, j] = 3;
+          }
+          else                  // walkable
+          {
+              layout[i, j] = 0;
+          }
           PictureBox pb = CreateMapCell(val, LoadImg);
           if (pb != null) {
             pb.Top = top;
@@ -167,6 +179,11 @@ namespace GameLibrary {
     // on the "level 2" square in the map:
     public bool ChangeLevel(Position pos)
     {
+      if (pos.row < 0 || pos.row >= NumRows ||
+          pos.col < 0 || pos.col >= NumCols ||
+          layout[pos.row, pos.col] == 1) {
+        return false;
+      }
         if (layout[pos.row, pos.col] == 3)
         {
             return true;
