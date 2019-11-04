@@ -14,6 +14,8 @@ namespace GenericRPG
 		private Enemy enemy;
 		private Random rand;
 
+        private double runchance;
+
 		public FrmArena()
 		{
 			InitializeComponent();
@@ -57,6 +59,8 @@ namespace GenericRPG
 			// names
 			lblPlayerName.Text = character.Name;
 			lblEnemyName.Text = enemy.Name;
+
+            runchance = 0.25;
 		}
 
 	public void UpdateStats() {
@@ -140,10 +144,9 @@ namespace GenericRPG
 				doEnemyAttack();
 			}
 		}
-
         private void btnRun_Click(object sender, EventArgs e)
         {
-            double runchance = 0.25;
+            Console.WriteLine(runchance);
             if (character.Health <= 0)
             {
                 UpdateStats();
