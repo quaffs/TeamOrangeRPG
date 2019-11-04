@@ -26,6 +26,7 @@ namespace GenericRPG {
       Width = grpMap.Width + 25;
       Height = grpMap.Height + 50;
       game.SetCharacter(character);
+      character.EquipWeapon(new SuperSword());
     }
 
     private void FrmMap_KeyDown(object sender, KeyEventArgs e) {
