@@ -102,7 +102,7 @@ namespace GameLibrary {
       receiver.Health -= (baseDamage * randMult);
     }
     public void MagicAttack(Mortal receiver, Mortal sender) {
-      float baseDamage = Math.Max(Str * 1.5f - receiver.Def, 0);
+      float baseDamage = Math.Max(Stats["Str"].CalcValue * 1.5f - receiver.Stats["Def"].CalcValue, 0);
       float randMax = 1 + MAGICATTACK_RANDOM_AMT;
       float randMin = 1 - MAGICATTACK_RANDOM_AMT;
       float randMult = (float)(rand.NextDouble() * (randMax - randMin)) + randMin;
