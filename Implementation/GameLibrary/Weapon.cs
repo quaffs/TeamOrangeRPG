@@ -6,13 +6,20 @@ using System.Threading.Tasks;
 
 namespace GameLibrary
 {
-  public abstract class Weapon
-  {
-    public string Name { get; protected set; }
-    public string Sprite { get; protected set; }
-    public int DamageModifier { get; protected set; }
+    public abstract class Weapon
+    {
+        public WeaponType Type { get; protected set; }
+        public string Name { get; protected set; }
+        public string Sprite { get; protected set; }
+        public int DamageModifier { get; protected set; }
 
-    public abstract void OnEquipped(Mortal equipper);
-    public abstract void OnUnequipped(Mortal unequipper);
-  }
+        public abstract void OnEquipped(Mortal equipper);
+        public abstract void OnUnequipped(Mortal unequipper);
+    }
+
+    public enum WeaponType
+    {
+        Physical,
+        Magical
+    }
 }

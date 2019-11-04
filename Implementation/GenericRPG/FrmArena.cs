@@ -66,15 +66,15 @@ namespace GenericRPG
 	public void UpdateStats() {
 	  lblPlayerLevel.Text = character.Level.ToString();
 	  lblPlayerHealth.Text = Math.Round(character.Health).ToString();
-	  lblPlayerStr.Text = Math.Round(character.Stats["Str"].CalcValue).ToString();
-	  lblPlayerDef.Text = Math.Round(character.Stats["Def"].CalcValue).ToString();
+	  lblPlayerStr.Text = Math.Round(character.GetModifiedStat("Str")).ToString();
+	  lblPlayerDef.Text = Math.Round(character.GetModifiedStat("Def")).ToString();
 	  lblPlayerMana.Text = Math.Round(character.Mana).ToString();
 	  lblPlayerXp.Text = Math.Round(character.XP).ToString();
 
 	  lblEnemyLevel.Text = enemy.Level.ToString();
 	  lblEnemyHealth.Text = Math.Round(enemy.Health).ToString();
-	  lblEnemyStr.Text = Math.Round(enemy.Stats["Str"].CalcValue).ToString();
-	  lblEnemyDef.Text = Math.Round(enemy.Stats["Def"].CalcValue).ToString();
+	  lblEnemyStr.Text = Math.Round(enemy.GetModifiedStat("Str")).ToString();
+	  lblEnemyDef.Text = Math.Round(enemy.GetModifiedStat("Def")).ToString();
 	  lblEnemyMana.Text = Math.Round(enemy.Mana).ToString();
 
 			lblPlayerHealth.Text = Math.Round(character.Health).ToString();
@@ -146,7 +146,6 @@ namespace GenericRPG
 		}
         private void btnRun_Click(object sender, EventArgs e)
         {
-            Console.WriteLine(runchance);
             if (character.Health <= 0)
             {
                 UpdateStats();
@@ -176,15 +175,17 @@ namespace GenericRPG
 
 		private void btnHeal_Click(object sender, EventArgs e)
 		{
-			if (character.Mana < 5 || character.Health >= (character.Stats["MaxHealth"].CalcValue - 5)) {
+			if (character.Mana < 5 || character.Health >= (character.GetModifiedStat("MaxHealth") - 5)) {
 				return;
 			}
 			float prevPlayerHealth = character.Health;
 			character.Heal(character);
 			float playerDamage = (float)Math.Round(character.Health - prevPlayerHealth);
+            lblPlayerDamage.ForeColor = Color.Green;
 			lblPlayerDamage.Text = playerDamage.ToString();
 			lblPlayerDamage.Visible = true;
 			tmrPlayerDamage.Enabled = true;
+            UpdateStats();
 		}
 
 		private void tmrPlayerDamage_Tick(object sender, EventArgs e)
@@ -195,6 +196,7 @@ namespace GenericRPG
 				lblPlayerDamage.Visible = false;
 				tmrPlayerDamage.Enabled = false;
 				lblPlayerDamage.Top = 52;
+                lblPlayerDamage.ForeColor = Color.Red;
 			}
 		}
 

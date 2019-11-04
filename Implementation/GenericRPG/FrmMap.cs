@@ -1,4 +1,5 @@
 ﻿using GameLibrary;
+using GameLibrary.Weapons;
 using GenericRPG.Properties;
 using System;
 using System.Drawing;
@@ -26,7 +27,7 @@ namespace GenericRPG {
       Width = grpMap.Width + 25;
       Height = grpMap.Height + 50;
       game.SetCharacter(character);
-      character.EquipWeapon(new SuperSword());
+      character.EquipWeapon(new BasicSword());
     }
 
     private void FrmMap_KeyDown(object sender, KeyEventArgs e) {

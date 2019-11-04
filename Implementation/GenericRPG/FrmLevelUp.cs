@@ -17,17 +17,17 @@ namespace GenericRPG {
       character.RefillHealthAndMana();
 
       lblOldLevel.Text  = character.Level.ToString();
-      lblOldHealth.Text = ((float)Math.Round(character.Stats["MaxHealth"].BaseValue)).ToString();
-      lblOldMana.Text   = ((float)Math.Round(character.Stats["MaxMana"].BaseValue)).ToString();
-      lblOldStr.Text    = ((float)Math.Round(character.Stats["Str"].BaseValue)).ToString();
-      lblOldDef.Text    = ((float)Math.Round(character.Stats["Def"].BaseValue)).ToString();
+      lblOldHealth.Text = ((float)Math.Round(character.GetBaseStat("MaxHealth"))).ToString();
+      lblOldMana.Text   = ((float)Math.Round(character.GetBaseStat("MaxMana"))).ToString();
+      lblOldStr.Text    = ((float)Math.Round(character.GetBaseStat("Str"))).ToString();
+      lblOldDef.Text    = ((float)Math.Round(character.GetBaseStat("Def"))).ToString();
 
       character.LevelUp();
       lblNewLevel.Text  = character.Level.ToString();
-      lblNewHealth.Text = ((float)Math.Round(character.Stats["MaxHealth"].BaseValue)).ToString();
-      lblNewMana.Text = ((float)Math.Round(character.Stats["MaxMana"].BaseValue)).ToString();
-      lblNewStr.Text = ((float)Math.Round(character.Stats["Str"].BaseValue)).ToString();
-      lblNewDef.Text = ((float)Math.Round(character.Stats["Def"].BaseValue)).ToString();
+      lblNewHealth.Text = ((float)Math.Round(character.GetBaseStat("MaxHealth"))).ToString();
+      lblNewMana.Text = ((float)Math.Round(character.GetBaseStat("MaxMana"))).ToString();
+      lblNewStr.Text = ((float)Math.Round(character.GetBaseStat("Str"))).ToString();
+      lblNewDef.Text = ((float)Math.Round(character.GetBaseStat("Def"))).ToString();
     }
 
     private void btnClose_Click(object sender, EventArgs e) {
