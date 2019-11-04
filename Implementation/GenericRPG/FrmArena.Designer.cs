@@ -60,6 +60,7 @@
             this.lblEndFightMessage = new System.Windows.Forms.Label();
             this.tmrPlayerDamage = new System.Windows.Forms.Timer(this.components);
             this.tmrEnemyDamage = new System.Windows.Forms.Timer(this.components);
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picCharacter)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -82,7 +83,7 @@
             // 
             this.picCharacter.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picCharacter.Location = new System.Drawing.Point(32, 53);
-            this.picCharacter.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.picCharacter.Margin = new System.Windows.Forms.Padding(4);
             this.picCharacter.Name = "picCharacter";
             this.picCharacter.Size = new System.Drawing.Size(237, 167);
             this.picCharacter.TabIndex = 2;
@@ -206,7 +207,7 @@
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.lblPlayerMana);
             this.panel1.Location = new System.Drawing.Point(64, 36);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(303, 487);
             this.panel1.TabIndex = 11;
@@ -290,7 +291,7 @@
             this.panel2.Controls.Add(this.label13);
             this.panel2.Controls.Add(this.lblEnemyMana);
             this.panel2.Location = new System.Drawing.Point(563, 36);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(303, 447);
             this.panel2.TabIndex = 12;
@@ -374,7 +375,7 @@
             // 
             this.picEnemy.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picEnemy.Location = new System.Drawing.Point(32, 53);
-            this.picEnemy.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.picEnemy.Margin = new System.Windows.Forms.Padding(4);
             this.picEnemy.Name = "picEnemy";
             this.picEnemy.Size = new System.Drawing.Size(237, 167);
             this.picEnemy.TabIndex = 2;
@@ -460,7 +461,7 @@
             this.btnSimpleAttack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnSimpleAttack.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSimpleAttack.Location = new System.Drawing.Point(408, 180);
-            this.btnSimpleAttack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSimpleAttack.Margin = new System.Windows.Forms.Padding(4);
             this.btnSimpleAttack.Name = "btnSimpleAttack";
             this.btnSimpleAttack.Size = new System.Drawing.Size(115, 57);
             this.btnSimpleAttack.TabIndex = 13;
@@ -473,7 +474,7 @@
             this.btnMagicAttack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnMagicAttack.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMagicAttack.Location = new System.Drawing.Point(407, 249);
-            this.btnMagicAttack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMagicAttack.Margin = new System.Windows.Forms.Padding(4);
             this.btnMagicAttack.Name = "btnMagicAttack";
             this.btnMagicAttack.Size = new System.Drawing.Size(115, 57);
             this.btnMagicAttack.TabIndex = 14;
@@ -485,8 +486,8 @@
             // 
             this.btnRun.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btnRun.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRun.Location = new System.Drawing.Point(408, 316);
-            this.btnRun.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnRun.Location = new System.Drawing.Point(408, 379);
+            this.btnRun.Margin = new System.Windows.Forms.Padding(4);
             this.btnRun.Name = "btnRun";
             this.btnRun.Size = new System.Drawing.Size(115, 57);
             this.btnRun.TabIndex = 15;
@@ -517,19 +518,33 @@
             this.tmrEnemyDamage.Interval = 20;
             this.tmrEnemyDamage.Tick += new System.EventHandler(this.tmrEnemyDamage_Tick);
             // 
+            // Heal Button (Button 1)
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(76)))));
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(408, 314);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "btnHeal";
+            this.button1.Size = new System.Drawing.Size(115, 57);
+            this.button1.TabIndex = 17;
+            this.button1.Text = "Heal";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.btnHeal_Click);
+            // 
             // FrmArena
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(941, 617);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.lblEndFightMessage);
             this.Controls.Add(this.btnRun);
             this.Controls.Add(this.btnMagicAttack);
             this.Controls.Add(this.btnSimpleAttack);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmArena";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmArena";
@@ -581,5 +596,6 @@
     private System.Windows.Forms.Label lblEnemyDamage;
     private System.Windows.Forms.Timer tmrPlayerDamage;
     private System.Windows.Forms.Timer tmrEnemyDamage;
-  }
+    private System.Windows.Forms.Button button1;
+    }
 }

@@ -91,5 +91,10 @@ namespace GameLibrary {
       receiver.Health -= (baseDamage * randMult);
       sender.Mana -= 10;
     }
+
+    public void Heal(Mortal receiver) {
+      receiver.Health += 5;
+      receiver.Mana -= 5;
+    }
   }
 }
