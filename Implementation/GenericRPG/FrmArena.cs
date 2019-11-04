@@ -88,6 +88,35 @@ namespace GenericRPG {
       }
     }
 
+    private void btnMagicAttack_Click(object sender, EventArgs e) {
+      if (character.Mana < 10){
+                return;
+      }
+      float prevEnemyHealth = enemy.Health;
+      character.MagicAttack(enemy, character);
+      float enemyDamage = (float)Math.Round(prevEnemyHealth - enemy.Health);
+      lblEnemyDamage.Text = enemyDamage.ToString();
+      lblEnemyDamage.Visible = true;
+      tmrEnemyDamage.Enabled = true;
+      if (enemy.Health <= 0) {
+        lblEnemyDamage.Visible = false;
+        lblPlayerDamage.Visible = false;
+        character.GainXP(enemy.XpDropped);
+        lblEndFightMessage.Text = "You Gained " + Math.Round(enemy.XpDropped) + " xp!";
+        lblEndFightMessage.Visible = true;
+        Refresh();
+        Thread.Sleep(1200);
+        EndFight();
+        if (character.ShouldLevelUp) {
+          FrmLevelUp frmLevelUp = new FrmLevelUp();
+          frmLevelUp.Show();
+        }
+      }
+      else {
+        doEnemyAttack();
+      }
+    }
+
     private void btnRun_Click(object sender, EventArgs e) {
       if (character.Health <= 0)
       {

@@ -18,6 +18,7 @@ namespace GameLibrary {
     private const float LVLINC_MANA = 10;
 
     private const float SIMPLEATTACK_RANDOM_AMT = 0.25f;
+    private const float MAGICATTACK_RANDOM_AMT = 0.35f;
     #endregion
 
     public string Name { get; protected set; }
@@ -81,6 +82,14 @@ namespace GameLibrary {
       float randMin = 1 - SIMPLEATTACK_RANDOM_AMT;
       float randMult = (float)(rand.NextDouble() * (randMax - randMin)) + randMin;
       receiver.Health -= (baseDamage * randMult);
+    }
+    public void MagicAttack(Mortal receiver, Mortal sender) {
+      float baseDamage = Math.Max(Str * 1.5f - receiver.Def, 0);
+      float randMax = 1 + MAGICATTACK_RANDOM_AMT;
+      float randMin = 1 - MAGICATTACK_RANDOM_AMT;
+      float randMult = (float)(rand.NextDouble() * (randMax - randMin)) + randMin;
+      receiver.Health -= (baseDamage * randMult);
+      sender.Mana -= 10;
     }
   }
 }
