@@ -102,6 +102,7 @@ namespace GenericRPG {
         frmGameOver.Show();
       }
       if (rand.NextDouble() < 0.25) {
+        lblPlayerDamage.Visible = false;
         lblEndFightMessage.Text = "You Ran Like a Coward!";
         lblEndFightMessage.Visible = true;
         Refresh();

@@ -51,6 +51,7 @@ namespace GameLibrary {
         foreach (char c in mapLine) {
           int val = c - '0';
           layout[i, j] = (val == 1 ? 1 : 0);
+          layout[i, j] = (val == 3 ? 3 : 0);
           PictureBox pb = CreateMapCell(val, LoadImg);
           if (pb != null) {
             pb.Top = top;
@@ -160,6 +161,20 @@ namespace GameLibrary {
       }
 
       return true;
+    }
+    
+    // this method checks if the player is
+    // on the "level 2" square in the map:
+    public bool ChangeLevel(Position pos)
+    {
+        if (layout[pos.row, pos.col] == 3)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     public Position RowColToTopLeft(Position p) {

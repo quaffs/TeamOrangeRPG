@@ -92,6 +92,10 @@ namespace GameLibrary {
           newPos.col++;
           break;
       }
+      if (map.ChangeLevel(newPos))  // checks if player stepped on level change tile
+      {
+          Game.GetGame().ChangeState(GameState.CHANGE_LEVEL);
+      }
       if (map.IsValidPos(newPos)) {
         pos = newPos;
         Position topleft = map.RowColToTopLeft(pos);

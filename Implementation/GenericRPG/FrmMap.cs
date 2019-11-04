@@ -9,8 +9,10 @@ namespace GenericRPG {
     private Character character;
     private Map map;
     private Game game;
+    private string level;   // selects which level .txt file to load from
 
-    public FrmMap() {
+    public FrmMap(string level) {
+      this.level = level;
       InitializeComponent();
     }
 
@@ -18,7 +20,7 @@ namespace GenericRPG {
       game = Game.GetGame();
 
       map = new Map();
-      character = map.LoadMap("Resources/level.txt", grpMap, 
+      character = map.LoadMap(level, grpMap, 
         str => Resources.ResourceManager.GetObject(str) as Bitmap
       );
       Width = grpMap.Width + 25;
@@ -47,6 +49,15 @@ namespace GenericRPG {
       }
       if (dir != MoveDir.NO_MOVE) {
         character.Move(dir);
+        if (game.State == GameState.CHANGE_LEVEL)
+        {
+          //////////////////////////////////////////////////////////////
+          /// NEED TO FIGURE OUT HOW TO CLOSE OLD LEVEL WINDOW
+          /// ///////////////////////////////////////////////////////
+          Game.GetGame().ChangeState(GameState.ON_MAP);
+          FrmMap frmMap = new FrmMap("Resources/level2.txt");
+          frmMap.Show();
+        }
         if (game.State == GameState.FIGHTING) {
           FrmArena frmArena = new FrmArena();
           frmArena.Show();
