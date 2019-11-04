@@ -135,6 +135,7 @@ namespace GenericRPG
 
         private void btnRun_Click(object sender, EventArgs e)
         {
+            double runchance = 0.25;
             if (character.Health <= 0)
             {
                 UpdateStats();
@@ -147,7 +148,7 @@ namespace GenericRPG
                 FrmGameOver frmGameOver = new FrmGameOver();
                 frmGameOver.Show();
             }
-            if (rand.NextDouble() < 0.25)
+            if (rand.NextDouble() < runchance)
             {
                 lblEndFightMessage.Text = "You Ran Like a Coward!";
                 lblEndFightMessage.Visible = true;
@@ -158,6 +159,7 @@ namespace GenericRPG
             else
             {
                 doEnemyAttack();
+                runchance += 0.1;
             }
         }
 
