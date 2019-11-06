@@ -69,8 +69,11 @@ namespace GenericRPG {
           FrmArena frmArena = new FrmArena();
           frmArena.Show();
         }
-
+        if(game.State == GameState.QUIT)//TLF
+                {
+                    this.Hide(); 
+                }
+            }
         }
-    }
   }
 }

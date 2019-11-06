@@ -92,7 +92,7 @@ namespace GameLibrary {
           newPos.col++;
           break;
       }
-      if(map.ChangeLevel(newPos)==1)//TLF
+       if(map.ChangeLevel(newPos)==1)//TLF
             {
                 Game.GetGame().ChangeState(GameState.CHANGE_LEVEL1);
                 return;
@@ -102,7 +102,11 @@ namespace GameLibrary {
         Game.GetGame().ChangeState(GameState.CHANGE_LEVEL);
         return;
       }
-      if (map.IsValidPos(newPos)) {
+      if(map.ChangeLevel(newPos)==3)//quit TLF
+            {
+                Game.GetGame().ChangeState(GameState.QUIT);
+            }
+            if (map.IsValidPos(newPos)) {
         pos = newPos;
         Position topleft = map.RowColToTopLeft(pos);
         Pic.Left = topleft.col;

@@ -64,6 +64,10 @@ namespace GameLibrary {
                     {
                         layout[i, j] = 6;
                     }
+          else if (val == 5)//quit game TLF
+                    {
+                        layout[i, j] = 5;
+                    }
           else                  // walkable
           {
               layout[i, j] = 0;
@@ -214,10 +218,12 @@ namespace GameLibrary {
         {
             return 2;
         }
-        else
-        {
-            return 0;
-        }
+            if (layout[pos.row, pos.col] == 5)//quit TLF
+                return 3;
+            else
+            {
+                return 0;
+            }
     }
 
     public Position RowColToTopLeft(Position p) {

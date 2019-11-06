@@ -68,6 +68,7 @@
     </Compile>
     <Compile Include="FrmMap.cs">
       <SubType>Form</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="FrmMap.Designer.cs">
       <DependentUpon>FrmMap.cs</DependentUpon>

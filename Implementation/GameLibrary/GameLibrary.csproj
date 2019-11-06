@@ -50,17 +50,17 @@
     <Compile Include="Weapons\BasicSword.cs" />
     <Compile Include="Character.cs" />
     <Compile Include="Enemy.cs" />
-    <Compile Include="Game.cs" />
+    <Compile Include="Game.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
     <Compile Include="Mortal.cs" />
     <Compile Include="MoveDir.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Weapons\SuperSword.cs" />
     <Compile Include="Weapon.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Map.cs">
+    <Compile Include="Map.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

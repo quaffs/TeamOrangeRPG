@@ -11,8 +11,10 @@ namespace GameLibrary {
     ON_MAP,
     FIGHTING,
     DEAD,
+    QUIT,
     CHANGE_LEVEL1,
     CHANGE_LEVEL,
+   
   }
 
   public class Game {
