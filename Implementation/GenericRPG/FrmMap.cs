@@ -71,7 +71,10 @@ namespace GenericRPG {
         }
         if(game.State == GameState.QUIT)//TLF
                 {
-                    this.Hide(); 
+                    // Changed this.Hide() to Close() because
+                    // this.Hide() keeps the program running
+                    // while Close() quits it altogether
+                    Close();
                 }
             }
         }
