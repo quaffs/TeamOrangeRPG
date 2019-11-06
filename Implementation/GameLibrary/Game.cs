@@ -11,6 +11,7 @@ namespace GameLibrary {
     ON_MAP,
     FIGHTING,
     DEAD,
+    CHANGE_LEVEL1,
     CHANGE_LEVEL,
   }
 

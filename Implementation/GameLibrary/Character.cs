@@ -92,7 +92,12 @@ namespace GameLibrary {
           newPos.col++;
           break;
       }
-      if (map.ChangeLevel(newPos))  // checks if player stepped on level change tile
+      if(map.ChangeLevel(newPos)==1)//TLF
+            {
+                Game.GetGame().ChangeState(GameState.CHANGE_LEVEL1);
+                return;
+            }
+      if (map.ChangeLevel(newPos)==2)  // checks if player stepped on level change tile
       {
         Game.GetGame().ChangeState(GameState.CHANGE_LEVEL);
         return;

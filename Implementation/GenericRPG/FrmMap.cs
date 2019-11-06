@@ -10,10 +10,10 @@ namespace GenericRPG {
     private Character character;
     private Map map;
     private Game game;
-    private string level;   // selects which level .txt file to load from
-
-    public FrmMap(string level) {
-      this.level = level;
+    //private string level;   // selects which level .txt file to load from
+        private string titleScreen; //titleScreen.txt file to load
+    public FrmMap(string titleScreen) {
+      this.titleScreen = titleScreen;
       InitializeComponent();
     }
 
@@ -21,7 +21,7 @@ namespace GenericRPG {
       game = Game.GetGame();
 
       map = new Map();
-      character = map.LoadMap(level, grpMap, 
+      character = map.LoadMap(titleScreen, grpMap, //CHANGE
         str => Resources.ResourceManager.GetObject(str) as Bitmap
       );
       Width = grpMap.Width + 25;
@@ -51,6 +51,13 @@ namespace GenericRPG {
       }
       if (dir != MoveDir.NO_MOVE) {
         character.Move(dir);
+        if (game.State == GameState.CHANGE_LEVEL1)//TLF 
+        {
+                    this.Hide();      // hides/close old window
+                    Game.GetGame().ChangeState(GameState.ON_MAP);
+                    FrmMap frmMap = new FrmMap("Resources/level.txt");
+                    frmMap.Show();    // shows LEVEL 1 window
+                }
         if (game.State == GameState.CHANGE_LEVEL)
         {
           this.Hide();      // hides/close old window
@@ -62,7 +69,8 @@ namespace GenericRPG {
           FrmArena frmArena = new FrmArena();
           frmArena.Show();
         }
-      }
+
+        }
     }
   }
 }

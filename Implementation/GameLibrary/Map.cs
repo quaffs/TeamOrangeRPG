@@ -60,6 +60,10 @@ namespace GameLibrary {
           {
               layout[i, j] = 3;
           }
+          else if (val == 6)//Level 1 TLF
+                    {
+                        layout[i, j] = 6;
+                    }
           else                  // walkable
           {
               layout[i, j] = 0;
@@ -100,61 +104,77 @@ namespace GameLibrary {
 
     private PictureBox CreateMapCell(int legendValue, Func<string, Bitmap> LoadImg) {
       PictureBox result = null;
-      switch (legendValue) {
-        // walkable
-        case 0:
-          break;
+            switch (legendValue)
+            {
+                // walkable
+                case 0:
+                    break;
 
-        // wall
-        case 1:
-          result = new PictureBox() {
-            BackgroundImage = LoadImg("wall"),
-            BackgroundImageLayout = ImageLayout.Stretch,
-            Width = BLOCK_SIZE,
-            Height = BLOCK_SIZE
-          };
-          break;
+                // wall
+                case 1:
+                    result = new PictureBox()
+                    {
+                        BackgroundImage = LoadImg("wall"),
+                        BackgroundImageLayout = ImageLayout.Stretch,
+                        Width = BLOCK_SIZE,
+                        Height = BLOCK_SIZE
+                    };
+                    break;
 
-        // character
-        case 2:
-          result = new PictureBox() {
-            BackgroundImage = LoadImg("character"),
-            BackgroundImageLayout = ImageLayout.Stretch,
-            Width = BLOCK_SIZE,
-            Height = BLOCK_SIZE
-          };
-          break;
+                // character
+                case 2:
+                    result = new PictureBox()
+                    {
+                        BackgroundImage = LoadImg("character"),
+                        BackgroundImageLayout = ImageLayout.Stretch,
+                        Width = BLOCK_SIZE,
+                        Height = BLOCK_SIZE
+                    };
+                    break;
 
-        // next level
-        case 3:
-          result = new PictureBox() {
-            BackgroundImage = LoadImg("level2"),
-            BackgroundImageLayout = ImageLayout.Stretch,
-            Width = BLOCK_SIZE,
-            Height = BLOCK_SIZE
-          };
-          break;
+                // next level
+                case 3:
+                    result = new PictureBox()
+                    {
+                        BackgroundImage = LoadImg("level2"),
+                        BackgroundImageLayout = ImageLayout.Stretch,
+                        Width = BLOCK_SIZE,
+                        Height = BLOCK_SIZE
+                    };
+                    break;
 
-        // boss
-        case 4:
-          result = new PictureBox() {
-            BackgroundImage = LoadImg("fightboss"),
-            BackgroundImageLayout = ImageLayout.Stretch,
-            Width = BLOCK_SIZE,
-            Height = BLOCK_SIZE
-          };
-          break;
+                // boss
+                case 4:
+                    result = new PictureBox()
+                    {
+                        BackgroundImage = LoadImg("fightboss"),
+                        BackgroundImageLayout = ImageLayout.Stretch,
+                        Width = BLOCK_SIZE,
+                        Height = BLOCK_SIZE
+                    };
+                    break;
 
-        // quit
-        case 5:
-          result = new PictureBox() {
-            BackgroundImage = LoadImg("quitgame"),
-            BackgroundImageLayout = ImageLayout.Stretch,
-            Width = BLOCK_SIZE,
-            Height = BLOCK_SIZE
-          };
-          break;
-      }
+                // quit
+                case 5:
+                    result = new PictureBox()
+                    {
+                        BackgroundImage = LoadImg("quitgame"),
+                        BackgroundImageLayout = ImageLayout.Stretch,
+                        Width = BLOCK_SIZE,
+                        Height = BLOCK_SIZE
+                    };
+                    break;
+                //level 1 
+                case 6:
+                    result = new PictureBox()
+                    {
+                        BackgroundImage = LoadImg("level1"),
+                        BackgroundImageLayout = ImageLayout.Stretch,
+                        Width = BLOCK_SIZE,
+                        Height = BLOCK_SIZE
+                    };
+                    break;
+            }        
       return result;
     }
 
@@ -164,33 +184,39 @@ namespace GameLibrary {
           layout[pos.row, pos.col] == 1) {
         return false;
       }
-      if (rand.NextDouble() < encounterChance) {
-        encounterChance = 0.15;
-        Game.GetGame().ChangeState(GameState.FIGHTING);
-      }
-      else {
-        encounterChance += 0.10;
-      }
-
+            if(NumRows!=8) //This prevents enemies on TitleScreen TLF    
+            {
+                if (rand.NextDouble() < encounterChance)
+                {
+                    encounterChance = 0.15;
+                    Game.GetGame().ChangeState(GameState.FIGHTING);
+                }
+                else
+                {
+                    encounterChance += 0.10;
+                }
+            }
       return true;
     }
     
     // this method checks if the player is
     // on the "level 2" square in the map:
-    public bool ChangeLevel(Position pos)
+    public int ChangeLevel(Position pos)
     {
       if (pos.row < 0 || pos.row >= NumRows ||
           pos.col < 0 || pos.col >= NumCols ||
           layout[pos.row, pos.col] == 1) {
-        return false;
+        return 0;
       }
+            if (layout[pos.row, pos.col] == 6)//Level 1 tile TLF
+                return 1;
         if (layout[pos.row, pos.col] == 3)
         {
-            return true;
+            return 2;
         }
         else
         {
-            return false;
+            return 0;
         }
     }
 
