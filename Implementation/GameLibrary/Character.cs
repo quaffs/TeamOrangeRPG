@@ -64,12 +64,12 @@ namespace GameLibrary {
     }
 
     public void BackToStart() {
-      pos.row = map.CharacterStartRow;
-      pos.col = map.CharacterStartCol;
-      Position topleft = map.RowColToTopLeft(pos);
-      Pic.Left = topleft.col;
-      Pic.Top = topleft.row;
-    }
+            pos.row = map.CharacterStartRow;
+            pos.col = map.CharacterStartCol;
+            Position topleft = map.RowColToTopLeft(pos);
+            Pic.Left = topleft.col;
+            Pic.Top = topleft.row;
+        }
     
     public override void ResetStats() {
       base.ResetStats();
@@ -103,10 +103,10 @@ namespace GameLibrary {
         return;
       }
       if(map.ChangeLevel(newPos)==3)//quit TLF
-            {
-                Game.GetGame().ChangeState(GameState.QUIT);
-            }
-            if (map.IsValidPos(newPos)) {
+      {
+        Game.GetGame().ChangeState(GameState.QUIT);
+      }
+      if (map.IsValidPos(newPos)) {
         pos = newPos;
         Position topleft = map.RowColToTopLeft(pos);
         Pic.Left = topleft.col;

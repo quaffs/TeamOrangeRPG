@@ -221,8 +221,11 @@ namespace GenericRPG
 			tmrPlayerDamage.Enabled = true;
 			if (character.Health <= 0)
 			{
-				// check if player ran out of hearts:
-				if (character.ShouldRespawn() == false)
+                lblPlayerDamage.Visible = false;
+                lblEnemyDamage.Visible = false;
+
+                // check if player ran out of hearts:
+                if (character.ShouldRespawn() == false)
 				{
 					UpdateStats();
 					game.ChangeState(GameState.DEAD);
@@ -241,14 +244,27 @@ namespace GenericRPG
 					Refresh();
 					Thread.Sleep(1200);
 					EndFight();
-					character.RefillHealthAndMana();
-					character.BackToStart();
-				}
+
+                    //this.Close();     // BYR: I am trying to close old window
+                    //Respawn();        //      but I can't figure it out how
+
+                    character.RefillHealthAndMana();
+                    character.BackToStart();
+
+                }
 			}
 			else
 			{
 				UpdateStats();
 			}
 		}
+
+        private void Respawn()
+        {
+            this.Close();
+            Game.GetGame().ChangeState(GameState.ON_MAP);
+            FrmMap frmMap = new FrmMap("Resources/titleScreen.txt");
+            frmMap.ShowDialog();    // shows title screen
+        }
 	}
 }

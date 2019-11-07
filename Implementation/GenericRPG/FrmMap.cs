@@ -74,8 +74,11 @@ namespace GenericRPG {
                     // Changed this.Hide() to Close() because
                     // this.Hide() keeps the program running
                     // while Close() quits it altogether
+
                     //Application.Exit() would also work TLF
-                    Close();
+
+                    // BYR: You're right fam
+                    Application.Exit();
                 }
             }
         }
