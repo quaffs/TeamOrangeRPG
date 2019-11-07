@@ -37,7 +37,7 @@ namespace GameLibrary
         /// <param name="pb"></param>
         /// <param name="pos"></param>
         /// <param name="map"></param>
-        public Character(PictureBox pb, Position pos, Map map) : base("Player 1", 1)
+        public Character(PictureBox pb, Position pos, Map map) : base("Megaman", 1)
         {
             Pic = pb;
             this.pos = pos;
