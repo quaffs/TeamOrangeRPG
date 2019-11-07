@@ -112,6 +112,13 @@ namespace GameLibrary {
       {
         Game.GetGame().ChangeState(GameState.QUIT);
       }
+      //Checks to see if the game needs to be saved or loaded if so it does it. TLF
+      //if(map.Load_SaveGame(newPos)==1)//This is save
+      //{
+
+      //}
+      //if(map.Load_SaveGame(newPos) == 2)//This is load
+
       if (map.IsValidPos(newPos)) {
         pos = newPos;
         Position topleft = map.RowColToTopLeft(pos);

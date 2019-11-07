@@ -68,6 +68,10 @@ namespace GameLibrary {
                     {
                         layout[i, j] = 5;
                     }
+                    else if (val == 7)//save tile TLF
+                    {
+                        layout[i, j] = 7;
+                    }
                     else                  // walkable
                     {
                         layout[i, j] = 0;
@@ -179,6 +183,26 @@ namespace GameLibrary {
                         Height = BLOCK_SIZE
                     };
                     break;
+                    //Save game tile TLF
+                    case 7:
+                        result = new PictureBox()
+                        {
+                            BackgroundImage = LoadImg("save"),
+                            BackgroundImageLayout = ImageLayout.Stretch,
+                            Width = BLOCK_SIZE,
+                            Height = BLOCK_SIZE
+                        };
+                        break;
+                    //Load Tile TLF
+                    case 8:
+                        result = new PictureBox()
+                        {
+                            BackgroundImage = LoadImg("load"),
+                            BackgroundImageLayout = ImageLayout.Stretch,
+                            Width = BLOCK_SIZE,
+                            Height = BLOCK_SIZE
+                        };
+                        break;
                 }
                 return result;
             }
@@ -226,8 +250,27 @@ namespace GameLibrary {
                 return 0;
             }
     }
+    public short Load_SaveGame(Position pos)
+    {
+            if (pos.row < 0 || pos.row >= NumRows ||
+                pos.col < 0 || pos.col >= NumCols ||
+                layout[pos.row, pos.col] == 1)
+            {
+                return 0;
+            }
+            if (layout[pos.row, pos.col] == 7)
+            {
+                return 1;
+            }
+            if (layout[pos.row, pos.col] == 8)
+            {
+                return 2;
+            }
+            else
+                return 0;
+        }
 
-    public Position RowColToTopLeft(Position p) {
+        public Position RowColToTopLeft(Position p) {
       return new Position(p.row * BLOCK_SIZE + TOP_PAD, p.col * BLOCK_SIZE + BOUNDARY_PAD);
     }
   }
