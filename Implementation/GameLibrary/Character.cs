@@ -37,7 +37,7 @@ namespace GameLibrary
         /// <param name="pb"></param>
         /// <param name="pos"></param>
         /// <param name="map"></param>
-        public Character(PictureBox pb, Position pos, Map map) : base("Player 1", 1)
+        public Character(PictureBox pb, Position pos, Map map) : base("Megaman", 1)
         {
             Pic = pb;
             this.pos = pos;
@@ -115,12 +115,13 @@ namespace GameLibrary
                 Game.GetGame().ChangeState(GameState.CHANGE_LEVEL1);
                 return;
             }
-            if (map.ChangeLevel(newPos) == 2)  // checks if player stepped on level change tile
+            // Else If's added to not spawn fight when stepping on block
+            else if (map.ChangeLevel(newPos) == 2)  // checks if player stepped on level change tile
             {
                 Game.GetGame().ChangeState(GameState.CHANGE_LEVEL);
                 return;
             }
-            if (map.ChangeLevel(newPos) == 3)//quit TLF
+            else if (map.ChangeLevel(newPos) == 3)//quit TLF
             {
                 Game.GetGame().ChangeState(GameState.QUIT);
             }
@@ -131,7 +132,7 @@ namespace GameLibrary
             //}
             //if(map.Load_SaveGame(newPos) == 2)//This is load
 
-            if (map.IsValidPos(newPos))
+            else if (map.IsValidPos(newPos))
             {
                 pos = newPos;
                 Position topleft = map.RowColToTopLeft(pos);

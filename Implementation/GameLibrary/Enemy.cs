@@ -14,7 +14,7 @@ namespace GameLibrary {
 
     private static readonly Random rand = new Random();
     private static readonly List<string> names = new List<string>() {
-      "Wily", "Bob", "Dr. Light", "WallCrusher"
+      "Bender", "HAL", "Skynet", "Ultron"
     };
 
     public Enemy(int level, Bitmap img) : base(RandName(), level) {

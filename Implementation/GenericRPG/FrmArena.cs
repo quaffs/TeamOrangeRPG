@@ -261,24 +261,24 @@ namespace GenericRPG
 
                 // check if player ran out of hearts:
                 if (character.ShouldRespawn() == false)
-                {
-                    UpdateStats();
-                    game.ChangeState(GameState.DEAD);
-                    lblEndFightMessage.Text = "You Were Defeated!";
-                    lblEndFightMessage.Visible = true;
-                    Refresh();
-                    Thread.Sleep(1200);
-                    EndFight();
-                    FrmGameOver frmGameOver = new FrmGameOver();
-                    frmGameOver.Show();
-                }
-                else
-                {
-                    lblEndFightMessage.Text = "Hearts left: " + character.hearts + ". Respawning!";
-                    lblEndFightMessage.Visible = true;
-                    Refresh();
-                    Thread.Sleep(1200);
-                    EndFight();
+				{
+					UpdateStats();
+					game.ChangeState(GameState.DEAD);
+					lblEndFightMessage.Text = "You Were Defeated!";
+					lblEndFightMessage.Visible = true;
+					Refresh();
+					Thread.Sleep(1200);
+					EndFight();
+					FrmGameOver frmGameOver = new FrmGameOver();
+					frmGameOver.Show();
+				}
+				else
+				{
+					lblEndFightMessage.Text = "You died! Hearts left: " + character.hearts;
+					lblEndFightMessage.Visible = true;
+					Refresh();
+					Thread.Sleep(1200);
+					EndFight();
 
                     //this.Close();     // BYR: I am trying to close old window
                     //Respawn();        //      but I can't figure it out how
