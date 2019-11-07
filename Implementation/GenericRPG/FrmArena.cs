@@ -70,6 +70,7 @@ namespace GenericRPG
 	  lblPlayerDef.Text = Math.Round(character.GetModifiedStat("Def")).ToString();
 	  lblPlayerMana.Text = Math.Round(character.Mana).ToString();
 	  lblPlayerXp.Text = Math.Round(character.XP).ToString();
+      lblPlayerSp.Text = Math.Round(character.SP).ToString();
 
 	  lblEnemyLevel.Text = enemy.Level.ToString();
 	  lblEnemyHealth.Text = Math.Round(enemy.Health).ToString();
@@ -258,6 +259,27 @@ namespace GenericRPG
 				UpdateStats();
 			}
 		}
+        
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAddStrength_Click(object sender, EventArgs e)
+        {
+            if (character.SP == 0) return;
+            character.UseSP();
+            character.AddStr();
+            UpdateStats();
+        }
+
+        private void btnAddDef_Click(object sender, EventArgs e)
+        {
+            if (character.SP == 0) return;
+            character.UseSP();
+            character.AddDef();
+            UpdateStats();
+        }
 
         private void Respawn()
         {

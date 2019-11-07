@@ -28,6 +28,8 @@ namespace GameLibrary
         public int Level { get; protected set; }
         public float Health { get; protected set; }
         public float Mana { get; protected set; }
+        public float Str { get; protected set; }
+        public float Def { get; protected set; }
 
         public Dictionary<string, StatAttribute> Stats { get; protected set; }
 
@@ -68,6 +70,14 @@ namespace GameLibrary
                 LevelUp();
             }
         }
+
+                public void AddStr() {
+                    this.Str += 1;
+                }
+
+                public void AddDef() {
+                    this.Def += 1;
+                   }
 
         public virtual void LevelUp()
         {
