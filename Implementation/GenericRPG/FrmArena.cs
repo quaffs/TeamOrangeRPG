@@ -240,7 +240,7 @@ namespace GenericRPG
 				}
 				else
 				{
-					lblEndFightMessage.Text = "Hearts left: " + character.hearts + ". Respawning!";
+					lblEndFightMessage.Text = "You died! Hearts left: " + character.hearts;
 					lblEndFightMessage.Visible = true;
 					Refresh();
 					Thread.Sleep(1200);
