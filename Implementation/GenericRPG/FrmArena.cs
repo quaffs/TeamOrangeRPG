@@ -70,6 +70,7 @@ namespace GenericRPG
 
             simpleAttackSound = new SoundPlayer(@"Resources\attack.wav");
             magicAttackSound = new SoundPlayer(@"Resources\magic.wav");
+            healSound = new SoundPlayer(@"Resources\heal.wav");
             runSound = new SoundPlayer(@"Resources\run.wav");
         }
 
@@ -206,6 +207,12 @@ namespace GenericRPG
             {
                 return;
             }
+
+            if (game.SoundOn)
+            {
+                healSound.Play();
+            }
+
             float prevPlayerHealth = character.Health;
             character.Heal(character);
             float playerDamage = (float)Math.Round(character.Health - prevPlayerHealth);
