@@ -63,13 +63,19 @@ namespace GameLibrary {
 
     }
 
-    public void BackToStart() {
-            pos.row = map.CharacterStartRow;
-            pos.col = map.CharacterStartCol;
-            Position topleft = map.RowColToTopLeft(pos);
-            Pic.Left = topleft.col;
-            Pic.Top = topleft.row;
+    public void BackToStart()
+        {
+            Game.GetGame().ChangeState(GameState.RESPAWN);
+            
+            return;
         }
+  //  {
+    //        pos.row = map.CharacterStartRow;
+      //      pos.col = map.CharacterStartCol;
+        //    Position topleft = map.RowColToTopLeft(pos);
+          //  Pic.Left = topleft.col;
+            //Pic.Top = topleft.row;
+        //}
     
     public override void ResetStats() {
       base.ResetStats();

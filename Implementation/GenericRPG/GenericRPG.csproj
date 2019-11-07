@@ -138,7 +138,9 @@
     <None Include="Resources\fightboss.png" />
     <None Include="Resources\gameover.jpg" />
     <None Include="Resources\character-levelup.jpg" />
-    <None Include="Resources\character-levelup-animation.gif" />
+    <None Include="Resources\character-levelup-animation.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <Content Include="Resources\level.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

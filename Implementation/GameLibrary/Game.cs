@@ -14,7 +14,7 @@ namespace GameLibrary {
     QUIT,
     CHANGE_LEVEL1,
     CHANGE_LEVEL,
-   
+    RESPAWN,
   }
 
   public class Game {
