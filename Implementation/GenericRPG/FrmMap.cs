@@ -16,6 +16,8 @@ namespace GenericRPG
 
         public FrmMap(string titleScreen)
         {
+            TitleScreen title = new TitleScreen();
+            title.ShowDialog();    // shows title screen
             this.titleScreen = titleScreen;
             InitializeComponent();
         }
