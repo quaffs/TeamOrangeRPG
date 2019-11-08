@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace GenericRPG
 {
-    public partial class TitleScreen : Form
+    public partial class TitleCard : Form
     {
-        public TitleScreen()
+        public TitleCard()
         {
             InitializeComponent();
         }
