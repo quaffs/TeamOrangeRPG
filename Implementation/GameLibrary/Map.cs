@@ -80,6 +80,10 @@ namespace GameLibrary
                     {
                         layout[i, j] = 7;
                     }
+                    else if (val == 8)//load TLF
+                    {
+                        layout[i, j] = 8;
+                    }
                     else if (val == 9) // options
                     {
                         layout[i, j] = 9;
@@ -276,11 +280,11 @@ namespace GameLibrary
             {
                 return 0;
             }
-            if (layout[pos.row, pos.col] == 7)
+            if (layout[pos.row, pos.col] == 7)//save TLF
             {
                 return 1;
             }
-            if (layout[pos.row, pos.col] == 8)
+            if (layout[pos.row, pos.col] == 8)//Load TLF
             {
                 return 2;
             }

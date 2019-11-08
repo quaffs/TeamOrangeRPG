@@ -274,7 +274,7 @@ namespace GenericRPG
 				}
 				else
 				{
-					lblEndFightMessage.Text = "You died! Hearts left: " + character.hearts;
+					lblEndFightMessage.Text = "Hearts left: " + character.hearts + ". Respawning!";
 					lblEndFightMessage.Visible = true;
 					Refresh();
 					Thread.Sleep(1200);
@@ -284,7 +284,7 @@ namespace GenericRPG
                     //Respawn();        //      but I can't figure it out how
 
                     character.RefillHealthAndMana();
-                    character.BackToStart();
+                    character.BackToStart();// This is the method that takes you to the Title screen TLF
 
                 }
             }

@@ -28,12 +28,15 @@ namespace GameLibrary
         public int Level { get; protected set; }
         public float Health { get; protected set; }
         public float Mana { get; protected set; }
+        public float Str { get;  set; }
+        public float Def { get;  set; }
 
         public Dictionary<string, StatAttribute> Stats { get; protected set; }
 
         public Weapon EquippedWeapon { get; set; }
 
         private Random rand;
+        
 
         public Mortal(string name, int level)
         {
@@ -68,6 +71,15 @@ namespace GameLibrary
                 LevelUp();
             }
         }
+        // Add Str/Def
+                public void AddStr() {
+                    this.Stats["Str"].BaseValue += 1;
+                }
+
+                public void AddDef() {
+                    this.Stats["Def"].BaseValue += 1;
+                }
+
 
         public virtual void LevelUp()
         {
