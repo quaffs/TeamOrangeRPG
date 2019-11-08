@@ -14,7 +14,6 @@ namespace GenericRPG
 		private Enemy enemy;
 		private Random rand;
 
-
         private double runchance;
 
 		public FrmArena()
@@ -67,11 +66,10 @@ namespace GenericRPG
 	public void UpdateStats() {
 	  lblPlayerLevel.Text = character.Level.ToString();
 	  lblPlayerHealth.Text = Math.Round(character.Health).ToString();
-      lblPlayerStr.Text = Math.Round(character.GetModifiedStat("Str")).ToString();
-      lblPlayerDef.Text = Math.Round(character.GetModifiedStat("Def")).ToString();
-      lblPlayerMana.Text = Math.Round(character.Mana).ToString();
+	  lblPlayerStr.Text = Math.Round(character.GetModifiedStat("Str")).ToString();
+	  lblPlayerDef.Text = Math.Round(character.GetModifiedStat("Def")).ToString();
+	  lblPlayerMana.Text = Math.Round(character.Mana).ToString();
 	  lblPlayerXp.Text = Math.Round(character.XP).ToString();
-      lblPlayerSp.Text = Math.Round(character.SP).ToString();
 
 	  lblEnemyLevel.Text = enemy.Level.ToString();
 	  lblEnemyHealth.Text = Math.Round(enemy.Health).ToString();
@@ -241,7 +239,7 @@ namespace GenericRPG
 				}
 				else
 				{
-					lblEndFightMessage.Text = "You died! Hearts left: " + character.hearts;
+					lblEndFightMessage.Text = "Hearts left: " + character.hearts + ". Respawning!";
 					lblEndFightMessage.Visible = true;
 					Refresh();
 					Thread.Sleep(1200);
@@ -251,7 +249,7 @@ namespace GenericRPG
                     //Respawn();        //      but I can't figure it out how
 
                     character.RefillHealthAndMana();
-                    character.BackToStart();
+                    character.BackToStart();// This is the method that takes you to the Title screen TLF
 
                 }
 			}
@@ -260,23 +258,6 @@ namespace GenericRPG
 				UpdateStats();
 			}
 		}
-        
-
-        private void btnAddStrength_Click(object sender, EventArgs e)
-        {
-            if (character.SP == 0) return;
-            character.UseSP();
-            character.AddStr();
-            UpdateStats();
-        }
-
-        private void btnAddDef_Click(object sender, EventArgs e)
-        {
-            if (character.SP == 0) return;
-            character.UseSP();
-            character.AddDef();
-            UpdateStats();
-        }
 
         private void Respawn()
         {

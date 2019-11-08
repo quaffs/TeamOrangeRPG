@@ -217,7 +217,7 @@
             this.btnAddDef.TabIndex = 19;
             this.btnAddDef.Text = "+";
             this.btnAddDef.UseVisualStyleBackColor = true;
-            this.btnAddDef.Click += new System.EventHandler(this.btnAddDef_Click);
+            //this.btnAddDef.Click += new System.EventHandler(this.btnAddDef_Click);
             // 
             // btnAddStrength
             // 
@@ -227,7 +227,7 @@
             this.btnAddStrength.TabIndex = 18;
             this.btnAddStrength.Text = "+";
             this.btnAddStrength.UseVisualStyleBackColor = true;
-            this.btnAddStrength.Click += new System.EventHandler(this.btnAddStrength_Click);
+            //this.btnAddStrength.Click += new System.EventHandler(this.btnAddStrength_Click);
             // 
             // lblPlayerSp
             // 
