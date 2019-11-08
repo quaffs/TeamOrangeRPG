@@ -48,6 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TitleCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TitleCard.Designer.cs">
+      <DependentUpon>TitleCard.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmArena.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +87,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="TitleCard.resx">
+      <DependentUpon>TitleCard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmArena.resx">
       <DependentUpon>FrmArena.cs</DependentUpon>
     </EmbeddedResource>
