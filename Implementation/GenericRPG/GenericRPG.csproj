@@ -129,7 +129,9 @@
     <None Include="Resources\Save.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\titleScreen.txt" />
+    <None Include="Resources\titleScreen.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Resources\savedGame.txt" />
   </ItemGroup>
   <ItemGroup>
