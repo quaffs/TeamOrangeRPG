@@ -139,7 +139,7 @@ public struct Position {
                     dictionary["str"] = Str;
                     dictionary["hearts"] = hearts;
                     dictionary["lvl"] = Level;
-                    Write(dictionary, "C:\\dictionary.bin");
+                    Write(dictionary, "dictionary.bin");
 
 
                     // var dictionary = new Dictionary<string, float>();
@@ -157,7 +157,7 @@ public struct Position {
                 }
                 else if (map.Load_SaveGame(newPos) == 2)//This is load
                 {
-                    var dictionary = Read("C:\\dictionary.bin");
+                    var dictionary = Read("dictionary.bin");
                     this.Health = dictionary["health"];
                     this.Mana = dictionary["mana"];
                     this.Def = dictionary["def"];
