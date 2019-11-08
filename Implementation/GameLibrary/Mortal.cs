@@ -129,7 +129,7 @@ namespace GameLibrary
             float randMin = 1 - MAGICATTACK_RANDOM_AMT;
             float randMult = (float)(rand.NextDouble() * (randMax - randMin)) + randMin;
             receiver.Health -= (baseDamage * randMult);
-            sender.Mana -= 10;
+            sender.Mana -= 5;
         }
 
         public void Heal(Mortal receiver)

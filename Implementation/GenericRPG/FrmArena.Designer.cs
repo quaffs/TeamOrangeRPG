@@ -547,6 +547,26 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.btnHeal_Click);
             // 
+            // btnAddStrength
+            // 
+            this.btnAddStrength.Location = new System.Drawing.Point(175, 302);
+            this.btnAddStrength.Name = "btnAddStrength";
+            this.btnAddStrength.Size = new System.Drawing.Size(27, 23);
+            this.btnAddStrength.TabIndex = 18;
+            this.btnAddStrength.Text = "+";
+            this.btnAddStrength.UseVisualStyleBackColor = true;
+            this.btnAddStrength.Click += new System.EventHandler(this.btnAddStrength_Click);
+            // 
+            // btnAddDef
+            // 
+            this.btnAddDef.Location = new System.Drawing.Point(174, 330);
+            this.btnAddDef.Name = "btnAddDef";
+            this.btnAddDef.Size = new System.Drawing.Size(28, 23);
+            this.btnAddDef.TabIndex = 19;
+            this.btnAddDef.Text = "+";
+            this.btnAddDef.UseVisualStyleBackColor = true;
+            this.btnAddDef.Click += new System.EventHandler(this.btnAddDef_Click);
+            // 
             // FrmArena
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);

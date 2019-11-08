@@ -29,6 +29,7 @@ public struct Position {
     private Position pos;
     private Map map;
     public float XP { get; private set; }
+    public float SP { get; private set; }
     public bool ShouldLevelUp { get; private set; }
     public int hearts = 2;
 
@@ -54,11 +55,21 @@ public struct Position {
       }
     }
 
-    public override void LevelUp() {
-      base.LevelUp();
-      ShouldLevelUp = false;
-    }
+        public void UseSP() {
+            SP -= 1;
+        }
 
+        public void GainSP(float amount)
+        {
+            SP += amount;
+        }
+
+        public override void LevelUp() {
+            base.LevelUp();
+            ShouldLevelUp = false;
+            GainSP(2);
+
+        }
     public bool ShouldRespawn() {
         hearts--;
             if (hearts == 0)
