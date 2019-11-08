@@ -58,14 +58,15 @@ namespace GameLibrary
         }
                 
       
-        public void UseSP() {
-            SP -= 1;
-        }
+                public void UseSP() {
+                    SP -= 1;
+                }
 
-        public void GainSP(float amount)
-        {
-            SP += amount;
-        }
+
+                public void GainSP(float amount)
+                {
+                    SP += amount;
+                }
                 public override void LevelUp()
                 {
                     base.LevelUp();

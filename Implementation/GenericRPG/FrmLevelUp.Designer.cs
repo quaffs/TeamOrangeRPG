@@ -374,9 +374,9 @@
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.label7.Location = new System.Drawing.Point(576, 342);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(54, 29);
+            this.label7.Size = new System.Drawing.Size(62, 29);
             this.label7.TabIndex = 29;
-            this.label7.Text = "SP:";
+            this.label7.Text = "SP+";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label8
@@ -385,11 +385,12 @@
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.label8.Location = new System.Drawing.Point(638, 339);
+            this.label8.Location = new System.Drawing.Point(635, 342);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(27, 29);
             this.label8.TabIndex = 30;
             this.label8.Text = "2";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // FrmLevelUp
             // 

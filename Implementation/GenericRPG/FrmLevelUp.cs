@@ -49,5 +49,10 @@ namespace GenericRPG
         {
             sp.Stop();
         }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

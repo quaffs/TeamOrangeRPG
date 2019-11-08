@@ -612,9 +612,9 @@
     private System.Windows.Forms.Timer tmrPlayerDamage;
     private System.Windows.Forms.Timer tmrEnemyDamage;
     private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label lblPlayerSp;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Button btnAddDef;
-        private System.Windows.Forms.Button btnAddStrength;
+    private System.Windows.Forms.Label lblPlayerSp;
+    private System.Windows.Forms.Label label10;
+    private System.Windows.Forms.Button btnAddDef;
+    private System.Windows.Forms.Button btnAddStrength;
     }
 }

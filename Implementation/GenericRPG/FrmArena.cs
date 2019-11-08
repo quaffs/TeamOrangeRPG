@@ -14,6 +14,7 @@ namespace GenericRPG
 		private Enemy enemy;
 		private Random rand;
 
+
         private double runchance;
 
 		public FrmArena()
@@ -66,9 +67,9 @@ namespace GenericRPG
 	public void UpdateStats() {
 	  lblPlayerLevel.Text = character.Level.ToString();
 	  lblPlayerHealth.Text = Math.Round(character.Health).ToString();
-	  lblPlayerStr.Text = Math.Round(character.GetModifiedStat("Str")).ToString();
-	  lblPlayerDef.Text = Math.Round(character.GetModifiedStat("Def")).ToString();
-	  lblPlayerMana.Text = Math.Round(character.Mana).ToString();
+      lblPlayerStr.Text = Math.Round(character.GetModifiedStat("Str")).ToString();
+      lblPlayerDef.Text = Math.Round(character.GetModifiedStat("Def")).ToString();
+      lblPlayerMana.Text = Math.Round(character.Mana).ToString();
 	  lblPlayerXp.Text = Math.Round(character.XP).ToString();
       lblPlayerSp.Text = Math.Round(character.SP).ToString();
 
@@ -260,10 +261,6 @@ namespace GenericRPG
 			}
 		}
         
-        private void label10_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnAddStrength_Click(object sender, EventArgs e)
         {
